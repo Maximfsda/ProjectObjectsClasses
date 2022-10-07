@@ -10,18 +10,6 @@ public class Book {
         this.yearPublication = yearPublication;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public Author getAuthor() {
-        return author;
-    }
-
-    public int getYearPublication() {
-        return yearPublication;
-    }
-
     public void setYearPublication(int yearPublication) {
         this.yearPublication = yearPublication;
     }
@@ -34,20 +22,19 @@ public class Book {
     @Override
     public boolean equals(Object obj) {
 
-        if (!(obj instanceof Book)) return false;
+        if (!(obj instanceof Book)){
+            return false;
+        }
         Book p = (Book) obj;
-        if (name.equals(p.name)) {
-            if (author.equals(p.author)) {
-                if (yearPublication == (p.yearPublication)) {
-                    return true;
-                }
-            }
+        if (name.equals(p.name) && author.equals(p.author) && yearPublication == (p.yearPublication)) {
+            return true;
         }
         return false;
     }
+
     @Override
     public int hashCode() {
-        return java.util.Objects.hash(name,author,yearPublication);
+        return java.util.Objects.hash(name, author, yearPublication);
     }
 }
 
